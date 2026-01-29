@@ -4,7 +4,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Terminal as TerminalIcon, X, Minimize, Maximize } from "lucide-react";
+import { Terminal as TerminalIcon, X, Minimize, Maximize, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface CommandOutput {
@@ -45,6 +45,7 @@ const Terminal: React.FC = () => {
             <p>- <span className="text-cyan-400">date</span>: Show current date and time</p>
             <p>- <span className="text-cyan-400">whoami</span>: Display current user</p>
             <p>- <span className="text-cyan-400">about</span>: Learn about this me</p>
+            <p>- <span className="text-cyan-400">socials</span>: View social links</p>
             <p>- <span className="text-cyan-400">minimize</span>: Minimize the terminal</p>
             <p>- <span className="text-cyan-400">close</span>: Close the terminal</p>
           </div>
@@ -62,6 +63,15 @@ const Terminal: React.FC = () => {
       case "close":
         window.close();
         return ""
+      case "socials":
+        return (
+           <div className="text-sm">
+            <p>Connect with me:</p>
+            <p>- <a href="https://github.com/Vijaybhatia2208" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">GitHub</a></p>
+            <p>- <a href="https://www.linkedin.com/in/vijay-bhatia-031950216/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">LinkedIn</a></p>
+            <p>- <a href="https://x.com/VijayBh1196378" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">X (Twitter)</a></p>
+          </div>
+        )
       case "about":
         return (
           <div>
@@ -74,6 +84,9 @@ const Terminal: React.FC = () => {
             </p>  
             <p className="mt-2">
               I am passionate about <span className="text-green-400">building things</span> and always eager to learn. When I am not coding, you’ll probably find me jamming to Bollywood tunes. Indian music for the win! 🎶
+            </p>
+            <p className="mt-2">
+               Type <span className="text-cyan-400">socials</span> to connect with me!
             </p>
           </div>
         );
@@ -165,6 +178,19 @@ const Terminal: React.FC = () => {
           />
         </div>
       </form>
+      
+      {/* Footer Socials */}
+      <div className="bg-gray-800 p-2 border-t border-gray-700 flex justify-end space-x-4 pr-4">
+          <a href="https://github.com/Vijaybhatia2208" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <Github size={20} />
+          </a>
+          <a href="https://www.linkedin.com/in/vijay-bhatia-031950216/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <Linkedin size={20} />
+          </a>
+          <a href="https://x.com/VijayBh1196378" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <Twitter size={20} />
+          </a>
+      </div>
     </div>
   );
 };
